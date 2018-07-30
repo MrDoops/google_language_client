@@ -10,7 +10,7 @@ defmodule GoogleLanguageClient.Auth do
   defp fetch_authenticated_token() do
     case Goth.Token.for_scope(@auth_scope) do
       {:ok, token} -> {:ok, token.token}
-      :error -> :error
+      :error -> {:error, "Error fetching Authenticated Token"}
     end
   end
 end
